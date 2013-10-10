@@ -126,64 +126,14 @@ function clear() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 }
 
-function followBallAI() {
-
-
-  //randomly pick number beteween 0 and 1
-  var delayReaction = Math.random();
-
-  //25% chance of reaction delay
-  if(delayReaction >= 0.25) {
-
-    if(x > paddlexAI + paddlew) {
-      if(paddlexAI + paddlew + 5 <= WIDTH) {
-        paddlexAI += 5;
-      }
-    }
-
-    else if(x < paddlexAI) {
-      if(paddlexAI - 5 >= 0) {
-        paddlexAI -= 5;
-      }
-    }
-
-    else {
-
-      var centerPaddle = Math.random();
-
-      //80% chance of better centering the paddle
-      //otherwise the paddleAI will most of the times
-      //hit the ball in one of its extremities
-      if(centerPaddle > 0.2) {
-
-        //if ball closer to left side of computer paddle
-        if( Math.abs(x - paddlexAI) < Math.abs(x - paddlexAI - paddlew) ) {
-          if(paddlexAI - 5 >= 0) {
-            paddlexAI -= 5;
-          }
-        }
-
-        else {  
-          if(paddlexAI + paddlew + 5 <= WIDTH) {
-            paddlexAI += 5;
-          }
-        }
-      }
-
-    }
-
-  }
-
-}
-
 function drawSideLines() {
   ctx.beginPath();
-  ctx.rect(0,0,10,HEIGHT);
+  ctx.rect(0,0,10,WIDTH);
   ctx.closePath();
   ctx.fill();
 
   ctx.beginPath();
-  ctx.rect(WIDTH - 10,0,10,HEIGHT);
+  ctx.rect(HEIGHT - 10,0,10,WIDTH);
   ctx.closePath();
   ctx.fill();
 }
