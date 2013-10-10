@@ -24,7 +24,6 @@ VMX.callback=function(detections){
 
   if(modelName == geoff_model && score > .1){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
-    console.log("geoffs model is", modelName, "score is", score, "x is ", myx);
     paddlexAI = myx;
   }
 
@@ -32,14 +31,20 @@ VMX.callback=function(detections){
 
 VMX.storage.scaled_x = function(bb){
   var x0 = bb[0];
+  //canvasWidth/Height refers to the video canvas
+  var canvasWidth = 320;
+  var scalew = canvas.width  / canvasWidth;
+  return x0 * scalew;
+}
+
+VMX.storage.scaled_y = function(bb){
+  var x0 = bb[0];
   var x1 = bb[2];
   var y0 = bb[1];
   var y1 = bb[3];
-  var dw = Math.round(x1 - x0); //detection width
-  var dh = Math.round(y1 - y0); //detection height
   //canvasWidth/Height refers to the video canvas
-  canvasWidth = 320;
-  canvasHeight = 240;
+  var canvasWidth = 320;
+  var canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = canvas.height / canvasHeight;
   return x0 * scalew;
