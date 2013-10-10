@@ -95,14 +95,14 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = .1;
-  dy = .2;
+  dx = .2;
+  dy = .4;
   radius = 5;
   rightDown = false;
   leftDown = false;
   intervalId = 0;
 
-  intervalId = setInterval(draw, 30);
+  intervalId = setInterval(draw, 10);
   init_paddles();
 
 }
