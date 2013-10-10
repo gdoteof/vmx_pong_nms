@@ -78,7 +78,7 @@ function init() {
   leftDown = false;
   intervalId = 0;
 
-  intervalId = setInterval(draw, 10);
+  intervalId = setInterval(draw, 100);
   init_paddles();
 
 }
