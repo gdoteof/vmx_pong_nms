@@ -5,7 +5,6 @@ VMX.storage.inited = false;
 
 var canvas;
 VMX.callback=function(){
-  console.log("callback initiated",canvas,VMX.storage.inited);
   if(!VMX.storage.inited || !canvas){
     console.log("not initted, initing...");
     try{
@@ -15,7 +14,6 @@ VMX.callback=function(){
     }
     if(canvas){
       VMX.storage.inited = true;
-      debugger;
       init();
     }
     return;
