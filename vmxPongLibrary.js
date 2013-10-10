@@ -42,6 +42,7 @@ function init_paddles() {
 
 
 function init() {
+  console.log("WE NITTED!");
   ctx = canvas.getContext("2d");  
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
