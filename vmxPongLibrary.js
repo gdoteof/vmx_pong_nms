@@ -37,6 +37,7 @@ console.log("got canvas..");
 
 //set rightDown or leftDown if the right or left keys are down
 function onKeyDown(evt) {
+  console.log("KEY DOWN WITH",evt);
   if (evt.keyCode == 39) rightDown = true;
   else if (evt.keyCode == 37) leftDown = true;
 }
@@ -73,7 +74,7 @@ function init() {
   leftDown = false;
   intervalId = 0;
 
-  intervalId = setInterval(draw, 50);
+  intervalId = setInterval(draw, 20);
   init_paddles();
 
 }
@@ -191,7 +192,7 @@ function draw() {
 
     if (x <= paddlexAI || x >= paddlexAI + paddlew) {
       clearInterval(intervalId);
-      alert('You WIN ! :)');
+      console.log('You WIN ! :)');
       init();
     }
 
@@ -207,7 +208,7 @@ function draw() {
     }
     else {
       clearInterval(intervalId);
-      alert('You Lose ! :(');
+      console.log('You Lose ! :(');
           init();
     }
   }
