@@ -46,7 +46,6 @@ function onKeyUp(evt) {
 }
 
 
-debugger;
 $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
 
