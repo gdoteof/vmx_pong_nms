@@ -14,6 +14,7 @@ VMX.callback=function(){
     }
     if(canvas){
       VMX.storage.inited = true;
+      debugger;
       init();
     }
     return;
