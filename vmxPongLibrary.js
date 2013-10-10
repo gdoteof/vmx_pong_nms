@@ -42,7 +42,6 @@ VMX.storage.scaled_x = function(bb){
   canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = canvas.height / canvasHeight;
-  y = y0 * scaleh;
   return x;
 }
 
@@ -91,8 +90,8 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = 2;
-  dy = 4;
+  dx = 1;
+  dy = 1;
   radius = 2;
   rightDown = false;
   leftDown = false;
@@ -203,7 +202,7 @@ function draw() {
     }
   }
 
-  //followBallAI();
+  followBallAI();
 
   drawSideLines();
   rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
@@ -229,6 +228,7 @@ function draw() {
   else if (y + dy + radius > HEIGHT) {
     if (x > paddlex && x < paddlex + paddlew) {
       dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
+      console.log("dx is ", dx);
       dy = -dy;
     }
     else {
