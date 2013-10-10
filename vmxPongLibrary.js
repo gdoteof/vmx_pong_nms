@@ -30,10 +30,13 @@ VMX.callback=function(detections){
     myy = VMX.storage.scaled_y(detections[0].bb);
     paddleyAI = myy;
   }
-  if(modelName == right_model && score > .1){ 
+  else if(modelName == right_model && score > .1){ 
     console.log('in the rtight');
     myy = VMX.storage.scaled_y(detections[0].bb);
     paddley = myy;
+  }
+  else{
+    console.log(modelName, 'vs', right_model);
   }
 
 }
