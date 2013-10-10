@@ -84,8 +84,8 @@ $(document).keyup(onKeyUp);
 function init_paddles() {
   paddlex = WIDTH / 2;
   //paddlexAI = paddlex;
-  paddleh = 10;
-  paddlew = 75;
+  paddleh = 75;
+  paddlew = 10;
 }
 
 
