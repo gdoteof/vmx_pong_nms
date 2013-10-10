@@ -50,9 +50,10 @@ VMX.storage.scaled_y = function(bb){
   var canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = (canvas.height-paddleh) / canvasHeight;
+  console.log("pong height", canvas.height, "camera height", canvasHeight);
   console.log(y0);
-  console.log("tried ^^",scaleh);
-  return y0 * scaleh;
+  console.log("tried ^^",scaleh, "<--scaleh");
+  return y0;
 }
 
 var WIDTH;
