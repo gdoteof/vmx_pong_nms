@@ -128,12 +128,12 @@ function clear() {
 
 function drawSideLines() {
   ctx.beginPath();
-  ctx.rect(0,0,10,WIDTH);
+  ctx.rect(0,0,WIDTH,10);
   ctx.closePath();
   ctx.fill();
 
   ctx.beginPath();
-  ctx.rect(HEIGHT - 10,0,10,WIDTH);
+  ctx.rect(HEIGHT - 10,0,WIDTH,10);
   ctx.closePath();
   ctx.fill();
 }
