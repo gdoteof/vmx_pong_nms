@@ -24,8 +24,8 @@ VMX.callback=function(detections){
   }
 
   if(modelName == left_model && score > .1){ 
-    myx = VMX.storage.scaled_x(detections[0].bb);
-    paddleyAI = myx;
+    myy = VMX.storage.scaled_y(detections[0].bb);
+    paddleyAI = myy;
   }
 
 }
@@ -82,9 +82,9 @@ $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
 
 function init_paddles() {
-  paddley = WIDTH / 2;
+  paddley = HEIGHT / 2;
   //paddleyAI = paddley;
-  paddleh = 75;
+  paddleh = 30;
   paddlew = 10;
 }
 
@@ -96,8 +96,8 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = .4;
-  dy = .8;
+  dx = .8;
+  dy = .4;
   radius = 5;
   rightDown = false;
   leftDown = false;
@@ -191,7 +191,7 @@ function draw() {
       clearInterval(intervalId);
       //console.log('You Lose ! :(');
       console.log("left wins");
-      console.log([x,dx,y,paddly,paddleh]);
+      console.log([x,dx,y,paddley,paddleh]);
           init();
     }
   }
