@@ -2,6 +2,7 @@
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
+var canvas;
 VMX.callback=function(){
   if(!VMX.storage.inited){
     console.log("not initted, initing...");
