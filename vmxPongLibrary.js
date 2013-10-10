@@ -92,7 +92,7 @@ function init() {
   y = 50;
   dx = 1;
   dy = 1;
-  radius = 2;
+  radius = 5;
   rightDown = false;
   leftDown = false;
   intervalId = 0;
