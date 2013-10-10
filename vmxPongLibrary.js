@@ -6,8 +6,12 @@ var canvas;
 VMX.callback=function(){
   if(!VMX.storage.inited){
     console.log("not initted, initing...");
+    try{
+      canvas = VMX.getMagicCanvas();
+    } catch(e){
+      return;
+    }
     init();
-    canvas = VMX.getMagicCanvas();
     VMX.storage.inited = true;
     return;
   }
