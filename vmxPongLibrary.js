@@ -11,8 +11,8 @@ VMX.callback=function(){
     } catch(e){
       return;
     }
-    init();
     VMX.storage.inited = true;
+    init();
     return;
   }
   console.log("already inited");
