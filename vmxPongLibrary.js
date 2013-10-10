@@ -4,15 +4,17 @@ VMX.storage.inited = false;
 
 var canvas;
 VMX.callback=function(){
-  if(!VMX.storage.inited){
+  if(!VMX.storage.inited || !canvas){
     console.log("not initted, initing...");
     try{
       canvas = VMX.getMagicCanvas();
     } catch(e){
       return;
     }
-    VMX.storage.inited = true;
-    init();
+    if(canvas){
+      VMX.storage.inited = true;
+      init();
+    }
     return;
   }
   console.log("already inited");
