@@ -8,6 +8,7 @@ var geoff_model = 'ghandL';
 var canvas;
 VMX.callback=function(detections){
   var modelName = detections[0].cls;
+  var score     = detections[0].score;
   if(!VMX.storage.inited || !canvas){
     try{
       canvas = VMX.getMagicCanvas();
@@ -21,9 +22,9 @@ VMX.callback=function(detections){
     return;
   }
 
-  if(modelName == geoff_model){ 
+  if(modelName == geoff_model && score > .1){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
-    console.log("geoffs model is", modelName, "x is ", myx);
+    console.log("geoffs model is", modelName, "score is", score, "x is ", myx);
   }
 
 }
