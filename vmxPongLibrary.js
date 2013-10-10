@@ -202,7 +202,7 @@ function draw() {
     }
   }
 
-  followBallAI();
+  //followBallAI();
 
   drawSideLines();
   rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
