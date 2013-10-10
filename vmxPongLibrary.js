@@ -3,7 +3,8 @@ console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
-var geoff_model = 'ghandL';
+var left_model  = 'lhand';
+var right_model = 'hhand';
 
 var canvas;
 VMX.callback=function(detections){
@@ -22,7 +23,7 @@ VMX.callback=function(detections){
     return;
   }
 
-  if(modelName == geoff_model && score > .1){ 
+  if(modelName == left_model && score > .1){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
     paddlexAI = myx;
   }
