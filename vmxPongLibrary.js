@@ -188,6 +188,7 @@ function draw() {
     if (y <= paddleyAI || y >= paddleyAI + paddleh) {
       clearInterval(intervalId);
       //console.log('You WIN ! :)');
+      console.log('point for right');
       scores.right += 1;
       if(scores.right > POINTS_TO_WIN){
         console.log("right wins");
@@ -209,7 +210,7 @@ function draw() {
     }
     else {
       clearInterval(intervalId);
-      //console.log('You Lose ! :(');
+      console.log('point for left');
       scores.left += 1;
       if(scores.left > POINTS_TO_WIN){
         console.log("left wins");
