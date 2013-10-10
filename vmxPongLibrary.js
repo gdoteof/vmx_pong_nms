@@ -25,7 +25,7 @@ VMX.callback=function(detections){
 
   if(modelName == left_model && score > .1){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
-    paddlexAI = myx;
+    paddleyAI = myx;
   }
 
 }
@@ -54,14 +54,14 @@ VMX.storage.scaled_y = function(bb){
 var WIDTH;
 var HEIGHT;
 var ctx;
-var paddlex;
+var paddley;
 var paddleh;
 var paddlew;
 var intervalId;
 var rightDown = false;
 var leftDown = false;
 var radius;
-var paddlexAI;
+var paddleyAI;
 
 
 //set rightDown or leftDown if the right or left keys are down
@@ -82,8 +82,8 @@ $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
 
 function init_paddles() {
-  paddlex = WIDTH / 2;
-  //paddlexAI = paddlex;
+  paddley = WIDTH / 2;
+  //paddleyAI = paddley;
   paddleh = 75;
   paddlew = 10;
 }
@@ -147,22 +147,22 @@ function draw() {
   //move the paddle if left or right is currently pressed
 
   if (rightDown) {
-    if(paddlex + paddlew + 5 <= WIDTH) {
-      paddlex += 5;
+    if(paddley + paddlew + 5 <= WIDTH) {
+      paddley += 5;
     }
   }
 
   else if (leftDown) {
-    if(paddlex - 5 >= 0) {
-      paddlex -= 5;
+    if(paddley - 5 >= 0) {
+      paddley -= 5;
     }
   }
 
   //followBallAI();
 
   drawSideLines();
-  rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
-  rect(paddlexAI, 0, paddlew, paddleh);
+  rect(HEIGHT-paddlew,paddley, paddlew, paddleh);
+  rect(paddleyAI, 0, paddlew, paddleh);
 
   if (x + dx + radius > WIDTH || x + dx - radius < 0)
     dx = -dx;
@@ -170,7 +170,7 @@ function draw() {
   //upper lane
   if (y + dy - radius <= 0) {
 
-    if (x <= paddlexAI || x >= paddlexAI + paddlew) {
+    if (x <= paddleyAI || x >= paddleyAI + paddlew) {
       clearInterval(intervalId);
       //console.log('You WIN ! :)');
       init();
@@ -182,8 +182,8 @@ function draw() {
   }
   //lower lane
   else if (y + dy + radius > HEIGHT) {
-    if (x > paddlex && x < paddlex + paddlew) {
-      //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
+    if (x > paddley && x < paddley + paddlew) {
+      //dx = 8 * ((x-(paddley+paddlew/2))/paddlew);
       dy = -dy;
     }
     else {
