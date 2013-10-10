@@ -23,7 +23,7 @@ VMX.callback=function(detections){
 
   if(modelName == geoff_model){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
-    console.log(myx);
+    console.log("geoffs x", myx);
   }
 
 }
