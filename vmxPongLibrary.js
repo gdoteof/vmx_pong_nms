@@ -1,5 +1,5 @@
 //BEGIN LIBRARY CODE
-console.log.clear();
+console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
