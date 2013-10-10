@@ -69,16 +69,16 @@ function init() {
   ctx = canvas.getContext("2d");  
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
-  x = 150;
-  y = 150;
+  x = 50;
+  y = 50;
   dx = 2;
   dy = 4;
-  radius = 10;
+  radius = 2;
   rightDown = false;
   leftDown = false;
   intervalId = 0;
 
-  intervalId = setInterval(draw, 100);
+  intervalId = setInterval(draw, 10);
   init_paddles();
 
 }
