@@ -191,6 +191,7 @@ function draw() {
       clearInterval(intervalId);
       //console.log('You Lose ! :(');
       console.log("left wins");
+      console.log([x,dx,y,paddly,paddleh]);
           init();
     }
   }
