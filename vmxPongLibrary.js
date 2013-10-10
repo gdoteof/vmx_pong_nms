@@ -25,6 +25,7 @@ VMX.callback=function(detections){
 
   if(modelName == left_model && score > .1){ 
     myy = VMX.storage.scaled_y(detections[0].bb);
+    console.log("trying??");
     paddleyAI = myy;
   }
 
@@ -39,6 +40,7 @@ VMX.storage.scaled_x = function(bb){
 }
 
 VMX.storage.scaled_y = function(bb){
+  console.log("started to try");
   var x0 = bb[0];
   var x1 = bb[2];
   var y0 = bb[1];
@@ -48,6 +50,8 @@ VMX.storage.scaled_y = function(bb){
   var canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = (canvas.height-paddleh) / canvasHeight;
+  console.log(y0);
+  console.log("tried ^^");
   return y0 * scaleh;
 }
 
