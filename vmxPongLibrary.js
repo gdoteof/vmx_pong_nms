@@ -51,33 +51,17 @@ VMX.storage.scaled_y = function(bb){
   var y1 = bb[3];
   var det_height = y1 -y0;
   var dCanvasHeight = 240;
-  console.log('det_height',det_height);
   var in_height = dCanvasHeight - det_height;
-  console.log('in_height',in_height);
   var scaleh = (canvas.height/in_height);
-  console.log('scaleh',scaleh);
   var normalized_detection = y0 / in_height;
   var normalized_draw = normalized_detection * (canvas.height - paddleh);
   return normalized_draw;
   if (normalized_detection < .08) {
-    console.log("NORMALiZING TO 0");
     normalized_detection = 0;
   }
   else if( normalized_detection > .92 ) {
-    console.log("NORMALiZING TO 1");
     normalized_detection = 1;
   }
-  console.log('normalized_detection',normalized_detection);
-  return y0;
-  //canvasWidth/Height refers to the video canvas
-  var canvasWidth = 320;
-  var dCanvasHeight = 240;
-  var scalew = canvas.width  / canvasWidth;
-  var scaleh = (canvas.height) / dCanvasHeight;
-  console.log("pong height", canvas.height, "camera height", dCanvasHeight);
-  console.log(y0);
-  console.log("tried ^^",scaleh, "<--scaleh");
-  return y0;
 }
 
 var WIDTH;
@@ -95,7 +79,6 @@ var paddleyAI;
 
 //set rightDown or leftDown if the right or left keys are down
 function onKeyDown(evt) {
-  console.log("KEY DOWN WITH",evt);
   if (evt.keyCode == 39) rightDown = true;
   else if (evt.keyCode == 37) leftDown = true;
 }
