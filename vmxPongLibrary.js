@@ -28,8 +28,11 @@ VMX.callback=function(detections){
 
   if(modelName == left_model && score > .1){ 
     myy = VMX.storage.scaled_y(detections[0].bb);
-    console.log("trying??");
     paddleyAI = myy;
+  }
+  if(modelName == right_model && score > .1){ 
+    myy = VMX.storage.scaled_y(detections[0].bb);
+    paddley = myy;
   }
 
 }
