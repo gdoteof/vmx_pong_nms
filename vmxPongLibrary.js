@@ -42,8 +42,7 @@ VMX.storage.scaled_x = function(bb){
   canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = canvas.height / canvasHeight;
-  x = x0 * scalew;
-  return x;
+  return = x0 * scalew;
 }
 
 var WIDTH;
