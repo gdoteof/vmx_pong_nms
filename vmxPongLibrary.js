@@ -133,7 +133,7 @@ function drawSideLines() {
   ctx.fill();
 
   ctx.beginPath();
-  ctx.rect(HEIGHT - 10,0,WIDTH,10);
+  ctx.rect(0,HEIGHT - 10,WIDTH,10);
   ctx.closePath();
   ctx.fill();
 }
