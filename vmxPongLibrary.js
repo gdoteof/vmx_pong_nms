@@ -4,7 +4,7 @@ VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
 var canvas;
-VMX.callback=function(){
+VMX.callback=function(detections){
   if(!VMX.storage.inited || !canvas){
     try{
       canvas = VMX.getMagicCanvas();
