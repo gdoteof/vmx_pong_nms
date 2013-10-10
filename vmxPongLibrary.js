@@ -31,6 +31,7 @@ VMX.callback=function(detections){
     paddleyAI = myy;
   }
   if(modelName == right_model && score > .1){ 
+    console.log('in the rtight');
     myy = VMX.storage.scaled_y(detections[0].bb);
     paddley = myy;
   }
