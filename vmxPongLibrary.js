@@ -1,6 +1,17 @@
 //BEGIN LIBRARY CODE
 VMX.config.useMagicCanvas = true;
-VMX.storage.ledger = {}
+VMX.storage.inited = false;
+
+VMX.callback=function(){
+  if(!VMX.storage.inited){
+    console.log("not initted, initing...");
+    init();
+    canvas = VMX.getMagicCanvas();
+    VMX.storage.inited = true;
+    return;
+  }
+  console.log("already inited");
+}
 
 var WIDTH;
 var HEIGHT;
@@ -15,7 +26,7 @@ var radius;
 var paddlexAI;
 
 console.log("trying canvas..");
-var canvas = VMX.getMagicCanvas();
+canvas = VMX.getMagicCanvas();
 console.log("got canvas..");
 
 //set rightDown or leftDown if the right or left keys are down
