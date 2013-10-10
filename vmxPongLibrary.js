@@ -162,7 +162,7 @@ function draw() {
 
   drawSideLines();
   console.log("HEIGHT",HEIGHT,"paddlew",paddlew);
-  rect(HEIGHT-paddlew,paddley, paddlew, paddleh);
+  rect(WIDTH-paddlew,paddley, paddlew, paddleh);
   rect(paddleyAI, 0, paddlew, paddleh);
 
   if (x + dx + radius > WIDTH || x + dx - radius < 0)
