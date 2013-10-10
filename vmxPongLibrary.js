@@ -6,6 +6,9 @@ VMX.storage.inited = false;
 var left_model  = 'lhand';
 var right_model = 'hhand';
 
+var scores = {'left': 0, 'right': 0}
+var POINTS_TO_WIN = 5;
+
 var canvas;
 VMX.callback=function(detections){
   var modelName = detections[0].cls;
@@ -185,7 +188,12 @@ function draw() {
     if (y <= paddleyAI || y >= paddleyAI + paddleh) {
       clearInterval(intervalId);
       //console.log('You WIN ! :)');
-      console.log("right wins");
+      scores.right += 1;
+      if(scores.right > POINTS_TO_WIN){
+        console.log("right wins");
+        return;
+      }
+      console.log(scores);
       init();
     }
 
@@ -202,9 +210,13 @@ function draw() {
     else {
       clearInterval(intervalId);
       //console.log('You Lose ! :(');
-      console.log("left wins");
-      console.log([x,dx,y,paddley,paddleh]);
-          init();
+      scores.left += 1;
+      if(scores.left > POINTS_TO_WIN){
+        console.log("left wins");
+        return;
+      }
+      console.log(scores);
+      init();
     }
   }
   x += dx;
