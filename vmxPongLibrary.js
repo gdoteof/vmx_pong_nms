@@ -25,6 +25,7 @@ VMX.callback=function(detections){
   if(modelName == geoff_model && score > .1){ 
     myx = VMX.storage.scaled_x(detections[0].bb);
     console.log("geoffs model is", modelName, "score is", score, "x is ", myx);
+    paddlexAI = myx;
   }
 
 }
@@ -77,7 +78,7 @@ $(document).keyup(onKeyUp);
 
 function init_paddles() {
   paddlex = WIDTH / 2;
-  paddlexAI = paddlex;
+  //paddlexAI = paddlex;
   paddleh = 10;
   paddlew = 75;
 }
