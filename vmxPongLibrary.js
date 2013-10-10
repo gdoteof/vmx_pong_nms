@@ -183,7 +183,7 @@ function draw() {
   }
   //right lane
   else if (x + dx + radius > WIDTH) {
-    if (y > paddley && x < paddley + paddleh) {
+    if (y > paddley && y < paddley + paddleh) {
       //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
       dx = -dx;
     }
