@@ -47,8 +47,8 @@ VMX.storage.scaled_y = function(bb){
   var y1 = bb[3];
   var det_height = y1 -y0;
   var in_height = canvasHeight - det_height;
-  var normalized_detection = (canvas.height / canvasHeight) * y0;
-  console.log(normalized_detection);
+  var normalized_detection = (canvas.height / in_height) * y0;
+  console.log(in_height,normalized_detection);
   return y0;
   //canvasWidth/Height refers to the video canvas
   var canvasWidth = 320;
