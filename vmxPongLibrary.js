@@ -18,7 +18,8 @@ VMX.callback=function(detections){
     return;
   }
 
-  paddlexAI = VMX.storage.scaled_x(detections[0].bb);
+  myx = VMX.storage.scaled_x(detections[0].bb);
+  console.log(myx);
 
 }
 
