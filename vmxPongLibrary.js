@@ -42,6 +42,7 @@ VMX.storage.scaled_x = function(bb){
   canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
   var scaleh = canvas.height / canvasHeight;
+  x = x0 * scalew;
   return x;
 }
 
@@ -228,7 +229,6 @@ function draw() {
   else if (y + dy + radius > HEIGHT) {
     if (x > paddlex && x < paddlex + paddlew) {
       dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
-      console.log("dx is ", dx);
       dy = -dy;
     }
     else {
