@@ -3,8 +3,11 @@ console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
+var geoff_model = 'ghandL';
+
 var canvas;
 VMX.callback=function(detections){
+  var modelName = detections[0].cls;
   if(!VMX.storage.inited || !canvas){
     try{
       canvas = VMX.getMagicCanvas();
@@ -18,8 +21,10 @@ VMX.callback=function(detections){
     return;
   }
 
-  myx = VMX.storage.scaled_x(detections[0].bb);
-  console.log(myx);
+  if(modelName == geoff_model){ 
+    myx = VMX.storage.scaled_x(detections[0].bb);
+    console.log(myx);
+  }
 
 }
 
