@@ -53,6 +53,14 @@ VMX.storage.scaled_y = function(bb){
   var scaleh = (canvas.height/in_height);
   console.log('scaleh',scaleh);
   var normalized_detection = y0 / in_height;
+  if (normalized_detection < .08) {
+    console.log("NORMALiZING TO 0");
+    normalized_detection = 0;
+  }
+  else if( normalized_detection > .92 ) {
+    console.log("NORMALiZING TO 1");
+    normalized_detection = 1;
+  }
   console.log('normalized_detection',normalized_detection);
   return y0;
   //canvasWidth/Height refers to the video canvas
