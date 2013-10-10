@@ -161,7 +161,6 @@ function draw() {
   //followBallAI();
 
   drawSideLines();
-  console.log("HEIGHT",HEIGHT,"paddlew",paddlew);
   rect(WIDTH-paddlew,paddley, paddlew, paddleh);
   rect(0,paddleyAI, paddlew, paddleh);
 
