@@ -12,10 +12,11 @@ VMX.callback=function(){
     } catch(e){
       return;
     }
-    if(canvas){
-      VMX.storage.inited = true;
-      init();
+    if(!canvas){
+      return;
     }
+    VMX.storage.inited = true;
+    init();
     return;
   }
   console.log("already inited");
