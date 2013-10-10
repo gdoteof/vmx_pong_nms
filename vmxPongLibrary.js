@@ -31,9 +31,6 @@ var leftDown = false;
 var radius;
 var paddlexAI;
 
-console.log("trying canvas..");
-canvas = VMX.getMagicCanvas();
-console.log("got canvas..");
 
 //set rightDown or leftDown if the right or left keys are down
 function onKeyDown(evt) {
