@@ -23,10 +23,10 @@ VMX.callback=function(){
 }
 
 VMX.storage.scaled_x = function(bb){
-  var x0 = detections[0].bb[0];
-  var x1 = detections[0].bb[2];
-  var y0 = detections[0].bb[1];
-  var y1 = detections[0].bb[3];
+  var x0 = bb[0];
+  var x1 = bb[2];
+  var y0 = bb[1];
+  var y1 = bb[3];
   var dw = Math.round(x1 - x0); //detection width
   var dh = Math.round(y1 - y0); //detection height
   //canvasWidth/Height refers to the video canvas
