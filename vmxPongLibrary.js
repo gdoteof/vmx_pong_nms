@@ -7,7 +7,7 @@ var left_model  = 'lhand';
 var right_model = 'hhand';
 
 var scores = {'left': 0, 'right': 0}
-var POINTS_TO_WIN = 5;
+var POINTS_TO_WIN = 50;
 
 var canvas;
 VMX.callback=function(detections){
