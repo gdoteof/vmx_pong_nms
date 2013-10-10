@@ -45,11 +45,16 @@ VMX.storage.scaled_y = function(bb){
   var x1 = bb[2];
   var y0 = bb[1];
   var y1 = bb[3];
+  var det_height = y1 -y0;
+  var in_height = canvasHeight - det_height;
+  var normalized_detection = (canvas.height / canvasHeight) * y0;
+  console.log(normal_in);
+  return y0;
   //canvasWidth/Height refers to the video canvas
   var canvasWidth = 320;
   var canvasHeight = 240;
   var scalew = canvas.width  / canvasWidth;
-  var scaleh = (canvas.height-paddleh) / canvasHeight;
+  var scaleh = (canvas.height) / canvasHeight;
   console.log("pong height", canvas.height, "camera height", canvasHeight);
   console.log(y0);
   console.log("tried ^^",scaleh, "<--scaleh");
