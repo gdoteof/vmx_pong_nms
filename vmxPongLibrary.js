@@ -232,7 +232,7 @@ function draw() {
   //lower lane
   else if (y + dy + radius > HEIGHT) {
     if (x > paddlex && x < paddlex + paddlew) {
-      dx = 4 * ((x-(paddlex+paddlew/2))/paddlew);
+      //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
       dy = -dy;
     }
     else {
