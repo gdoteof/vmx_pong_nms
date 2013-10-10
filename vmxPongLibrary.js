@@ -167,8 +167,6 @@ function draw() {
 
   if (y + dy + radius > HEIGHT || y + dy - radius < 0)
     dy = -dy;
-  if (x + dx + radius > WIDTH || x + dx - radius < 0)
-    dx = -dx;
 
   //left side
   if (x + dx - radius <= 0) {
