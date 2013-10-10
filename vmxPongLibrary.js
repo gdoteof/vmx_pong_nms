@@ -40,17 +40,17 @@ VMX.storage.scaled_x = function(bb){
 }
 
 VMX.storage.scaled_y = function(bb){
-  console.log("started to try");
-  var x0 = bb[0];
-  var x1 = bb[2];
   var y0 = bb[1];
   var y1 = bb[3];
   var det_height = y1 -y0;
   var dCanvasHeight = 240;
-  console.log('det_height',det_height,'dCanvasHeight',dCanvasHeight);
+  console.log('det_height',det_height);
   var in_height = dCanvasHeight - det_height;
-  var normalized_detection = (canvas.height / in_height) * y0;
-  console.log(in_height,normalized_detection);
+  console.log('in_height',in_height);
+  var scaleh = (canvas.height/in_height);
+  console.log('scaleh',scaleh);
+  var normalized_detection = scaleh * y0;
+  console.log('normalized_detection',normalized_detection);
   return y0;
   //canvasWidth/Height refers to the video canvas
   var canvasWidth = 320;
