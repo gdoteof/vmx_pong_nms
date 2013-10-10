@@ -46,7 +46,7 @@ VMX.storage.scaled_y = function(bb){
   var y0 = bb[1];
   var y1 = bb[3];
   var det_height = y1 -y0;
-  var dCanvasHeight = 320;
+  var dCanvasHeight = 240;
   console.log('det_height',det_height,'dCanvasHeight',dCanvasHeight);
   var in_height = dCanvasHeight - det_height;
   var normalized_detection = (canvas.height / in_height) * y0;
