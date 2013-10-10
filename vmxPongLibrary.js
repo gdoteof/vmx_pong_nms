@@ -15,6 +15,7 @@ VMX.callback=function(){
     }
     if(canvas){
       VMX.storage.inited = true;
+      console.log("but still about to init??????");
       init();
     }
     return;
