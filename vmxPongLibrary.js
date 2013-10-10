@@ -161,7 +161,7 @@ function draw() {
   //followBallAI();
 
   drawSideLines();
-  rect(HEIGHT-20,paddley, paddlew, paddleh);
+  //rect(HEIGHT-20,paddley, paddlew, paddleh);
   rect(paddleyAI, 0, paddlew, paddleh);
 
   if (x + dx + radius > WIDTH || x + dx - radius < 0)
