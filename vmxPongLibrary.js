@@ -193,7 +193,7 @@ function draw() {
 
     if (x <= paddlexAI || x >= paddlexAI + paddlew) {
       clearInterval(intervalId);
-      console.log('You WIN ! :)');
+      //console.log('You WIN ! :)');
       init();
     }
 
@@ -209,7 +209,7 @@ function draw() {
     }
     else {
       clearInterval(intervalId);
-      console.log('You Lose ! :(');
+      //console.log('You Lose ! :(');
           init();
     }
   }
