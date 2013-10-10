@@ -17,6 +17,25 @@ VMX.callback=function(){
     }
     return;
   }
+
+  paddlexAI = VMX.storage.scaled_x(detections[0].bb);
+
+}
+
+VMX.storage.scaled_x = function(bb){
+  var x0 = detections[0].bb[0];
+  var x1 = detections[0].bb[2];
+  var y0 = detections[0].bb[1];
+  var y1 = detections[0].bb[3];
+  var dw = Math.round(x1 - x0); //detection width
+  var dh = Math.round(y1 - y0); //detection height
+  //canvasWidth/Height refers to the video canvas
+  canvasWidth = 320;
+  canvasHeight = 240;
+  var scalew = canvas.width  / canvasWidth;
+  var scaleh = canvas.height / canvasHeight;
+  y = y0 * scaleh;
+  return x;
 }
 
 var WIDTH;
@@ -95,6 +114,7 @@ function clear() {
 }
 
 function followBallAI() {
+
 
   //randomly pick number beteween 0 and 1
   var delayReaction = Math.random();
@@ -175,7 +195,7 @@ function draw() {
     }
   }
 
-  followBallAI();
+  //followBallAI();
 
   drawSideLines();
   rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
