@@ -65,7 +65,6 @@ function init_paddles() {
 
 
 function init() {
-  console.log("WE NITTED!");
   ctx = canvas.getContext("2d");  
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
@@ -78,7 +77,7 @@ function init() {
   leftDown = false;
   intervalId = 0;
 
-  intervalId = setInterval(draw, 10);
+  intervalId = setInterval(draw, 50);
   init_paddles();
 
 }
