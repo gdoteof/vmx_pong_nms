@@ -163,33 +163,37 @@ function draw() {
   drawSideLines();
   console.log("HEIGHT",HEIGHT,"paddlew",paddlew);
   rect(WIDTH-paddlew,paddley, paddlew, paddleh);
-  rect(paddleyAI, 0, paddlew, paddleh);
+  rect(0,paddleyAI, paddlew, paddleh);
 
+  if (y + dy + radius > HEIGHT || y + dy - radius < 0)
+    dy = -dy;
   if (x + dx + radius > WIDTH || x + dx - radius < 0)
     dx = -dx;
 
-  //upper lane
-  if (y + dy - radius <= 0) {
+  //left side
+  if (x + dx - radius <= 0) {
 
-    if (x <= paddleyAI || x >= paddleyAI + paddlew) {
+    if (y <= paddleyAI || y >= paddleyAI + paddleh) {
       clearInterval(intervalId);
       //console.log('You WIN ! :)');
+      console.log("right wins");
       init();
     }
 
     else {
-      dy = -dy;
+      dx = -dx;
     }
   }
-  //lower lane
-  else if (y + dy + radius > HEIGHT) {
-    if (x > paddley && x < paddley + paddlew) {
-      //dx = 8 * ((x-(paddley+paddlew/2))/paddlew);
-      dy = -dy;
+  //right lane
+  else if (x + dx + radius > WIDTH) {
+    if (y > paddley && x < paddley + paddleh) {
+      //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
+      dx = -dx;
     }
     else {
       clearInterval(intervalId);
       //console.log('You Lose ! :(');
+      console.log("left wins");
           init();
     }
   }
