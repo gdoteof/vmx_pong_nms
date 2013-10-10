@@ -53,6 +53,8 @@ VMX.storage.scaled_y = function(bb){
   var scaleh = (canvas.height/in_height);
   console.log('scaleh',scaleh);
   var normalized_detection = y0 / in_height;
+  var normalized_draw = normalized_detection * (canvas.height - paddleh);
+  return normalized_draw;
   if (normalized_detection < .08) {
     console.log("NORMALiZING TO 0");
     normalized_detection = 0;
