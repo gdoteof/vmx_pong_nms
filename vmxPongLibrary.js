@@ -66,7 +66,7 @@ var rightDown = false;
 var leftDown = false;
 var radius;
 var paddleyAI;
-dx = 1;
+dx = 2;
 
 
 
@@ -80,6 +80,9 @@ function init_paddles() {
 
 
 function init() {
+  if(dx < 0 ){
+    dx *= -1;
+  }
   ctx = canvas.getContext("2d");  
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
