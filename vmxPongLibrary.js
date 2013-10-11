@@ -7,7 +7,7 @@ var left_model  = 'lhand2';
 var right_model = 'rhand';
 
 var scores = {'left': 0, 'right': 0}
-var POINTS_TO_WIN = 50;
+var POINTS_TO_WIN = 7;
 
 var canvas;
 VMX.callback=function(detections){
@@ -84,7 +84,7 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = 1.8;
+  dx = 1;
   dy = .4;
   radius = 5;
   rightDown = false;
@@ -150,8 +150,9 @@ function draw() {
       clearInterval(intervalId);
       console.log('point for right');
       scores.right += 1;
+      dx = dx / 1.1;
       if(scores.right > POINTS_TO_WIN){
-        console.log("right wins");
+        alert("right wins");
         return;
       }
       console.log(scores);
@@ -160,6 +161,7 @@ function draw() {
 
     else {
       dx = -dx;
+      dx = 1.1 * dx;
     }
   }
   //right right side
@@ -167,14 +169,17 @@ function draw() {
     if (y > paddley && y < paddley + paddleh) {
       //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
       dx = -dx;
+      dx = dx * 1.1;
     }
     else {
       clearInterval(intervalId);
       console.log('point for left');
       scores.left += 1;
+      dx = dx / 1.1;
       if(scores.left > POINTS_TO_WIN){
-        console.log("left wins");
+        alert("left wins");
         return;
+
       }
       console.log(scores);
       init();
