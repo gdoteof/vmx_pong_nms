@@ -66,6 +66,7 @@ var rightDown = false;
 var leftDown = false;
 var radius;
 var paddleyAI;
+dx = 1;
 
 
 
@@ -84,7 +85,6 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = 1;
   dy = .4;
   radius = 5;
   rightDown = false;
