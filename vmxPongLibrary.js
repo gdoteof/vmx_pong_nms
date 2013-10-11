@@ -3,7 +3,7 @@ console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
-var left_model  = 'lhand';
+var left_model  = 'lhand2';
 var right_model = 'rhand';
 
 var scores = {'left': 0, 'right': 0}
@@ -36,13 +36,6 @@ VMX.callback=function(detections){
   }
 }
 
-VMX.storage.scaled_x = function(bb){
-  var x0 = bb[0];
-  //canvasWidth/Height refers to the video canvas
-  var canvasWidth = 320;
-  var scalew = canvas.width  / canvasWidth;
-  return x0 * scalew;
-}
 
 VMX.storage.scaled_y = function(bb){
   var y0 = bb[1];
@@ -75,21 +68,6 @@ var radius;
 var paddleyAI;
 
 
-//set rightDown or leftDown if the right or left keys are down
-function onKeyDown(evt) {
-  if (evt.keyCode == 39) rightDown = true;
-  else if (evt.keyCode == 37) leftDown = true;
-}
-
-//and unset them when the right or left key is released
-function onKeyUp(evt) {
-  if (evt.keyCode == 39) rightDown = false;
-  else if (evt.keyCode == 37) leftDown = false;
-}
-
-
-$(document).keydown(onKeyDown);
-$(document).keyup(onKeyUp);
 
 function init_paddles() {
   paddley = HEIGHT / 2;
@@ -154,26 +132,14 @@ function draw() {
   clear();
   circle(x, y, radius);
 
-  //move the paddle if left or right is currently pressed
-
-  if (rightDown) {
-    if(paddley + paddlew + 5 <= WIDTH) {
-      paddley += 5;
-    }
-  }
-
-  else if (leftDown) {
-    if(paddley - 5 >= 0) {
-      paddley -= 5;
-    }
-  }
-
-  //followBallAI();
 
   drawSideLines();
+  //right paddle
   rect(WIDTH-paddlew,paddley, paddlew, paddleh);
+  //left paddle
   rect(0,paddleyAI, paddlew, paddleh);
 
+  //bouncing against top or bottom
   if (y + dy + radius > HEIGHT || y + dy - radius < 0)
     dy = -dy;
 
@@ -182,7 +148,6 @@ function draw() {
 
     if (y <= paddleyAI || y >= paddleyAI + paddleh) {
       clearInterval(intervalId);
-      //console.log('You WIN ! :)');
       console.log('point for right');
       scores.right += 1;
       if(scores.right > POINTS_TO_WIN){
@@ -197,7 +162,7 @@ function draw() {
       dx = -dx;
     }
   }
-  //right lane
+  //right right side
   else if (x + dx + radius > WIDTH) {
     if (y > paddley && y < paddley + paddleh) {
       //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
@@ -215,6 +180,8 @@ function draw() {
       init();
     }
   }
+
+  //move ball
   x += dx;
   y += dy;
 }
