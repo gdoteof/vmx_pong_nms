@@ -84,7 +84,7 @@ function init() {
   HEIGHT = canvas.height;
   x = 50;
   y = 50;
-  dx = .8;
+  dx = 1.8;
   dy = .4;
   radius = 5;
   rightDown = false;
