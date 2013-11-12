@@ -44,7 +44,6 @@ VMX.callback=function(detections){
 
 
 VMX.storage.scaled_y = function(bb){
-  debugger;
   var y0 = bb.y1;
   var y1 = bb.y2;
   var det_height = y1 -y0;
