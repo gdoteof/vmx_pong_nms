@@ -142,9 +142,10 @@ function draw() {
   var right_pos = vmxApi(right_model).getSmooth();
   paddleRightY = right_pos.y;
   paddleLeftY  =  left_pos.y;
-  debugger;
   clear();
   circle(x, y, radius);
+  console.clear();
+  console.log(right_pos);
 
   
 
