@@ -44,10 +44,10 @@ VMX.callback=function(detections){
 
 
 VMX.storage.scaled_y = function(bb){
-  var y0 = bb[1];
-  var y1 = bb[3];
+  var y0 = bb.y1;
+  var y1 = bb.y2;
   var det_height = y1 -y0;
-  var dCanvasHeight = 240;
+  var dCanvasHeight = vmxApi.getDimension().height;
   var in_height = dCanvasHeight - det_height;
   var scaleh = (canvas.height/in_height);
   var normalized_detection = y0 / in_height;
@@ -138,14 +138,15 @@ function drawSideLines() {
 //END LIBRARY CODE
 
 function draw() {
-  var left_pos = vmxApi(left_model).getSmooth();
+  var left_pos  =  vmxApi(left_model).getSmooth();
   var right_pos = vmxApi(right_model).getSmooth();
-  paddleRightY = right_pos.y;
-  paddleLeftY  =  left_pos.y;
+    
+    
+  paddleRightY = VMX.storage.scaled_y(right_pos);
+  paddleLeftY  =  VMX.storage.scaled_y(left_pos);
+  debugger;
   clear();
   circle(x, y, radius);
-  console.clear();
-  console.log(right_pos);
 
   
 
