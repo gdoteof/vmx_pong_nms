@@ -140,7 +140,6 @@ function drawSideLines() {
 //END LIBRARY CODE
 
 function draw() {
-  debugger;
   var smooth = vmxApi("gmouth").getSmooth();
   clear();
   console.log(smooth);
