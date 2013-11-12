@@ -11,7 +11,13 @@ var POINTS_TO_WIN = 7;
 
 var canvas;
 
-vmxApi('gmouth').onEnter(function(){alert("works, wow, entered")});
+var callbackParams = {
+  var1 : "wazzzup",
+};
+var config = {
+  minTime: 5000,
+}
+vmxApi('gmouth').onEnter(function(params){console.log("works, wow, entered", params.var1)}, callbackParams,config);
 VMX.callback=function(detections){
   var modelName = detections[0].cls;
   var score     = detections[0].score;
