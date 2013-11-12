@@ -16,7 +16,6 @@ var config = {
 }
 
 VMX.callback=function(detections){
-  return;
   var modelName = detections[0].cls;
   var score     = detections[0].score;
   if(!VMX.storage.inited || !canvas){
@@ -31,6 +30,7 @@ VMX.callback=function(detections){
     }
     return;
   }
+  return;
 
   if(modelName == left_model && score > .1){ 
     myy = VMX.storage.scaled_y(detections[0].bb);
