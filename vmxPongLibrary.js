@@ -11,14 +11,12 @@ var POINTS_TO_WIN = 7;
 
 var canvas;
 
-var callbackParams = {
-  var1 : "wazzzup",
-};
 var config = {
   minTime: 5000,
 }
-vmxApi('gmouth').onEnter(function(params){console.log("works, wow, entered", params.var1)}, callbackParams,config);
+
 VMX.callback=function(detections){
+  return;
   var modelName = detections[0].cls;
   var score     = detections[0].score;
   if(!VMX.storage.inited || !canvas){
@@ -36,11 +34,11 @@ VMX.callback=function(detections){
 
   if(modelName == left_model && score > .1){ 
     myy = VMX.storage.scaled_y(detections[0].bb);
-    paddleyAI = myy;
+    paddleLeftY = myy;
   }
   else if(modelName == right_model && score > .1){ 
     myy = VMX.storage.scaled_y(detections[0].bb);
-    paddley = myy;
+    paddleRightY = myy;
   }
 }
 
@@ -66,21 +64,21 @@ VMX.storage.scaled_y = function(bb){
 var WIDTH;
 var HEIGHT;
 var ctx;
-var paddley;
+var paddleRightY;
 var paddleh;
 var paddlew;
 var intervalId;
 var rightDown = false;
 var leftDown = false;
 var radius;
-var paddleyAI;
+var paddleLeftY;
 dx = 2;
 
 
 
 function init_paddles() {
-  paddley = HEIGHT / 2;
-  //paddleyAI = paddley;
+  paddleRightY = HEIGHT / 2;
+  //paddleLeftY = paddleRightY;
   paddleh = 30;
   paddlew = 10;
 }
@@ -140,18 +138,20 @@ function drawSideLines() {
 //END LIBRARY CODE
 
 function draw() {
-  var smooth = vmxApi("gmouth").getSmooth();
+  var left_pos = vmxApi(left_model).getSmooth();
+  var right_pos = vmxApi(right_model).getSmooth();
+  paddleRightY = right_pos.y;
+  paddleLeftY  =  left_pos.y;
   clear();
-  console.clear();
-  console.log(smooth.x,smooth.y);
   circle(x, y, radius);
 
+  
 
   drawSideLines();
   //right paddle
-  rect(WIDTH-paddlew,paddley, paddlew, paddleh);
+  rect(WIDTH-paddlew, paddleRightY, paddlew, paddleh);
   //left paddle
-  rect(0,paddleyAI, paddlew, paddleh);
+  rect(0,paddleLeftY, paddlew, paddleh);
 
   //bouncing against top or bottom
   if (y + dy + radius > HEIGHT || y + dy - radius < 0)
@@ -160,7 +160,7 @@ function draw() {
   //left side
   if (x + dx - radius <= 0) {
 
-    if (y <= paddleyAI || y >= paddleyAI + paddleh) {
+    if (y <= paddleLeftY || y >= paddleLeftY + paddleh) {
       clearInterval(intervalId);
       console.log('point for right');
       scores.right += 1;
@@ -180,7 +180,7 @@ function draw() {
   }
   //right right side
   else if (x + dx + radius > WIDTH) {
-    if (y > paddley && y < paddley + paddleh) {
+    if (y > paddleRightY && y < paddleRightY + paddleh) {
       //dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
       dx = -dx;
       dx = dx * 1.1;
