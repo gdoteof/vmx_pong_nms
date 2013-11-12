@@ -44,11 +44,10 @@ VMX.callback=function(detections){
 
 
 VMX.storage.scaled_y = function(bb){
-  debugger;
   var y0 = bb.y1;
   var y1 = bb.y2;
-  var det_height = y1 -y0;
-  var dCanvasHeight = vmxApi.getDimensions().height;
+  var det_height = y1 - y0;
+  var dCanvasHeight = bb.trackerHeight;
   var in_height = dCanvasHeight - det_height;
   var scaleh = (canvas.height/in_height);
   var normalized_detection = y0 / in_height;
