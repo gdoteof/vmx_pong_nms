@@ -44,6 +44,7 @@ VMX.callback=function(detections){
 
 
 VMX.storage.scaled_y = function(bb){
+  debugger;
   var y0 = bb.y1;
   var y1 = bb.y2;
   var det_height = y1 -y0;
@@ -144,7 +145,6 @@ function draw() {
     
   paddleRightY = VMX.storage.scaled_y(right_pos);
   paddleLeftY  =  VMX.storage.scaled_y(left_pos);
-  console.clear();
   console.log(left_pos.y, paddleLeftY);
   clear();
   circle(x, y, radius);
