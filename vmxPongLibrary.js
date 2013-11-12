@@ -15,7 +15,7 @@ var callbackParams = {
   var1 : "wazzzup",
 };
 var config = {
-  minTime: 500,
+  minTime: 5000,
 }
 vmxApi('gmouth').onEnter(function(params){console.log("works, wow, entered", params.var1)}, callbackParams);
 VMX.callback=function(detections){
