@@ -144,7 +144,8 @@ function draw() {
     
   paddleRightY = VMX.storage.scaled_y(right_pos);
   paddleLeftY  =  VMX.storage.scaled_y(left_pos);
-  debugger;
+  console.clear();
+  console.log(left_pos.y, paddleLeftY);
   clear();
   circle(x, y, radius);
 
