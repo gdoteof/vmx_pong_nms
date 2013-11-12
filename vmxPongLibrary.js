@@ -4,7 +4,7 @@ VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
 var left_model  = 'rhand';
-var right_model = 'lhand2';
+var right_model = 'lhand';
 
 var scores = {'left': 0, 'right': 0}
 var POINTS_TO_WIN = 7;
