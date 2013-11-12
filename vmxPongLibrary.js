@@ -10,6 +10,8 @@ var scores = {'left': 0, 'right': 0}
 var POINTS_TO_WIN = 7;
 
 var canvas;
+
+vmxApi('gmouth').onEnter(function(){alert("works, wow, entered")});
 VMX.callback=function(detections){
   var modelName = detections[0].cls;
   var score     = detections[0].score;
