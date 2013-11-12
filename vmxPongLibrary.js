@@ -3,8 +3,8 @@ console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
 
-var left_model  = 'rhand';
-var right_model = 'lhand';
+var left_model  = window.prompt("model for left side", 'lhand');
+var right_model = window.prompt("model for right side", 'rhand');
 
 var scores = {'left': 0, 'right': 0}
 var POINTS_TO_WIN = 7;
