@@ -17,7 +17,7 @@ var callbackParams = {
 var config = {
   minTime: 500,
 }
-vmxApi('gmouth').onEnter(function(params){console.log("works, wow, entered", params.var1)}, callbackParams,config);
+vmxApi('gmouth').onEnter(function(params){console.log("works, wow, entered", params.var1)}, callbackParams);
 VMX.callback=function(detections){
   var modelName = detections[0].cls;
   var score     = detections[0].score;
