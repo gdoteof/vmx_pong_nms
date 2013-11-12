@@ -142,6 +142,7 @@ function drawSideLines() {
 function draw() {
   var smooth = vmxApi("gmouth").getSmooth();
   clear();
+  console.clear();
   console.log(smooth.x,smooth.y);
   circle(x, y, radius);
 
