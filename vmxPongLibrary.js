@@ -1,4 +1,3 @@
-//BEGIN LIBRARY CODE
 console.clear();
 VMX.config.useMagicCanvas = true;
 VMX.storage.inited = false;
@@ -16,8 +15,6 @@ var config = {
 }
 
 VMX.callback=function(detections){
-  var modelName = detections[0].cls;
-  var score     = detections[0].score;
   if(!VMX.storage.inited || !canvas){
     try{
       canvas = VMX.getMagicCanvas();
@@ -31,34 +28,20 @@ VMX.callback=function(detections){
     return;
   }
   return;
-
-  if(modelName == left_model && score > .1){ 
-    myy = VMX.storage.scaled_y(detections[0].bb);
-    paddleLeftY = myy;
-  }
-  else if(modelName == right_model && score > .1){ 
-    myy = VMX.storage.scaled_y(detections[0].bb);
-    paddleRightY = myy;
-  }
 }
 
 
 VMX.storage.scaled_y = function(bb){
   var y0 = bb.y1;
   var y1 = bb.y2;
-  var det_height = y1 - y0;
   var dCanvasHeight = bb.trackerHeight;
+
+  var det_height = y1 - y0;
   var in_height = dCanvasHeight - det_height;
   var scaleh = (canvas.height/in_height);
   var normalized_detection = y0 / in_height;
   var normalized_draw = normalized_detection * (canvas.height - paddleh);
   return normalized_draw;
-  if (normalized_detection < .08) {
-    normalized_detection = 0;
-  }
-  else if( normalized_detection > .92 ) {
-    normalized_detection = 1;
-  }
 }
 
 var WIDTH;
@@ -138,6 +121,7 @@ function drawSideLines() {
 //END LIBRARY CODE
 
 function draw() {
+  debugger;
   var left_pos  =  vmxApi(left_model).getSmooth();
   var right_pos = vmxApi(right_model).getSmooth();
     
