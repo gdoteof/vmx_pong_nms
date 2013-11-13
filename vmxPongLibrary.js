@@ -14,6 +14,8 @@ var config = {
   minTime: 5000,
 }
 
+vmxApi('gmouth').onEnter(function(){ console.log("saw geoff's mouth"); }, null, {minTime:5000});
+
 VMX.callback=function(detections){
   if(!VMX.storage.inited || !canvas){
     try{
@@ -121,7 +123,6 @@ function drawSideLines() {
 //END LIBRARY CODE
 
 function draw() {
-  debugger;
   var left_pos  =  vmxApi(left_model).getSmooth();
   var right_pos = vmxApi(right_model).getSmooth();
     
